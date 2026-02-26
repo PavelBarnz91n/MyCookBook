@@ -1,5 +1,5 @@
 name: Webpack Build
-on: on:
+on:
   push:
     branches: [ "main" ]
   pull_request:
