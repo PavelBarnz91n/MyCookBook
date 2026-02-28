@@ -5,66 +5,66 @@ html, body {
     margin: 0;
 }
 
-.borderOn {
-    border: 1px solid black;
-    box-sizing: border-box;
-}
-.wraper {
+.mcb {
     width: 100%;
     height: 100vh;
-
     background: url('../images/fon5.jpg') no-repeat center/cover;
 }
 
-.mcb {
+.mcb__wraper {
     width: 70%;
     height: inherit;
     margin: 0 auto;
 
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
+    align-items: center;
+
+    overflow-y: auto;
+}
+
+.mcb__wraper::-webkit-scrollbar {
+    display: none;
 }
 
 .mcb__header {
+    width: 100%;
     display: flex;
-    justify-content: center;
     align-items: center;
-
     text-align: center;
-    padding: 0 20px;
 }
 
 .mcb__search-box__wraper {
     flex: 1;
     display: flex;
     justify-content: center;
+    padding: 10px;
 }
 
 .mcb__search-box {
-    width: 60%;
+    min-width: 200px; /* Чтобы не сжималась слишком сильно */
     display: flex;
-    justify-content: center;
-
-    border-radius: 25px;
+    align-items: center; /* Центрируем содержимое по вертикали */
+    background-color: rgb(235, 235, 235); /* Единый фон для всего поля */
+    border-radius: 30px; /* Более плавное скругление */
     border: 2px solid #ffbc70;
-    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+    padding: 2px 15px; /* Отступы внутри контейнера */
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .mcb__search__input {
-    width: 80%;
-    border-top-left-radius: 25px;
-    border-bottom-left-radius: 25px;
     border: none;
-    box-sizing: border-box;
-    padding: 5px 15px 5px 5px;
-    font-size: 12px;
+    background: transparent; /* Чтобы не перекрывал фон родителя */
+    padding: 8px 5px;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 14px;
+    color: #4e351e;
 }
 
-.mcb__search-box:focus-within {
-    outline: none;
-    border: 2px solid #ff8800;
-    box-shadow: 0 0 8px rgba(212, 103, 13, 0.349);
+.mcb__search__input::placeholder {
+    color: #c4a484; /* Красивый оттенок для подсказки */
+    opacity: 0.8;
 }
 
 .mcb__search__input:focus {
@@ -72,12 +72,28 @@ html, body {
 }
 
 .mcb__search__btn {
-    width: 20%;
-    background-color: white;
-    border-top-right-radius: 25px;
-    border-bottom-right-radius: 25px;
-    box-sizing: border-box;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    outline: none;
+
+    font-size: 18px; /* Размер лупы */
     cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    user-select: none;
+}
+
+/* Эффекты при взаимодействии */
+.mcb__search-box:focus-within {
+    border-color: #ff8800;
+    box-shadow: 0 0 15px rgba(255, 136, 0, 0.4);
+    transform: translateY(-1px); /* Легкий подъем при активации */
+}
+
+.mcb__search__btn:hover {
+    transform: scale(1.2); /* Лупа немного увеличивается */
+    filter: drop-shadow(0 0 5px rgba(255, 136, 0, 0.5));
 }
 
 .mcb__logo-box {
@@ -86,62 +102,206 @@ html, body {
     color: #f0cc57;
 }
 
-.mcb__logo-box__top-text {
-    margin: 10px;
-    font-size: 13px;
-    font-style: italic;
-}
-.mcb__logo-box__name {
-    font-size: 48px;
-    margin: 0;
-    border-top: 1px solid #c05024;
-    border-bottom: 1px solid #c05024;
-}
+.mcb__logo-box__top-text, 
 .mcb__logo-bottom-text {
     margin: 10px;
-    font-size: 13px;
+    font-family: 'Caveat', cursive;
+    font-size: 20px;
+    color: #ffe89ca1;
     font-style: italic;
 }
 
-.mcb__contacts-box {
-    flex: 1;
-    padding-left: 20px;
-    text-align: left;
+.mcb__logo-box__name {
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 48px;
+    letter-spacing: -1px;
+    margin: 0;
+    text-shadow: 0 0 15px rgba(240, 204, 87, 0.4)
 }
 
-.icon {
-    width: 12%;
-    cursor: pointer;
+.mcb__logo-box__name::before,
+.mcb__logo-box__name::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 3px;
+    
+    background: linear-gradient(to right, transparent, #f0cc57, transparent);
+    margin: 15px 0;
 }
-.icon:hover {
-    width: 15%;
+
+.mcb__profile-box {
+    flex: 1;
+    display: flex;
+    justify-content: center; /* Прижимаем к правому краю */
+    padding-right: 20px;
+}
+
+.mcb__profile-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.mcb__profile-box:hover {
+    transform: translateX(-5px); /* Легкое движение навстречу пользователю */
+}
+
+/* Круглая рамка для аватара */
+.mcb__profile-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid #f0cc57;
+    box-shadow: 0 0 10px rgba(240, 204, 87, 0.3);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.mcb__profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Ссылка "Войти" */
+.mcb__profile-link {
+    font-family: 'Caveat', cursive; /* Рукописный стиль как в логотипе */
+    font-size: 20px;
+    color: #ffe89ca1;
+    border-bottom: 1px dashed rgba(255, 232, 156, 0.4);
+    transition: all 0.3s ease;
+}
+
+.mcb__profile-box:hover .mcb__profile-link {
+    color: #f0cc57;
+    border-bottom-color: #f0cc57;
+    text-shadow: 0 0 8px rgba(240, 204, 87, 0.5);
 }
 
 .mcb__menu-box {
-    width: 100%;
-    margin-top: 10px;
-    padding: 8px;
+    width: 94%;
+    margin: 20px auto 10px;
+    padding: 12px 0;
     border-radius: 25px;
-    background-color: rgba(78, 53, 30, 0.692);
+    background: linear-gradient(145deg, rgba(78, 53, 30, 0.8), rgba(58, 38, 20, 0.9));
     box-shadow: 0 0px 15px 3px rgb(255, 198, 74);
+    border: 1px solid rgba(255, 198, 74, 0.1);
 }
 
 .mcb__menu-tag-box {
     list-style-type: none;
 
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 .mcb__menu-tag {
-    font-size: 20px;
-    border-bottom: 1px solid #ffe89ca1;
-    color: #ffe89ca1;
-    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: rgba(255, 232, 156, 0.75);
     cursor: pointer;
+    position: relative; /* Для позиционирования линии */
+    transition: all 0.3s ease;
+}
+
+.mcb__menu-tag::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: #f0cc57;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+    box-shadow: 0 0 8px rgba(240, 204, 87, 0.6);
 }
 
 .mcb__menu-tag:hover {
-    border-bottom: 1px solid #f0cc57;
     color: #ffe078;
+    text-shadow: 0 0 10px rgba(255, 224, 120, 0.3);
+}
+
+.mcb__menu-tag:hover::after {
+    width: 100%;
+}
+
+.mcb__content-box {
+    width: 100%;
+    display: flex;
+    margin-top: 20px;
+}
+
+.content-box__content {
+    width: 80%;
+
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.content-box__sidebar-box {
+    width: 20%;
+    min-width: 200px;
+    color: #f0cc57;
+    
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    border-radius: 20px;
+    margin-left: 10px;
+    padding: 20px 0;
+
+    background: linear-gradient(145deg, rgba(78, 53, 30, 0.92), rgba(58, 38, 20, 0.95));
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(240, 204, 87, 0.1);
+}
+
+.sidebar-box__title {
+    width: 80%;
+    align-self: center;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #f0cc57;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.sidebar-box__sidebar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Расстояние между пунктами (вместо margin у li) */
+}
+
+.sidebar__item {
+    color: rgba(255, 232, 156, 0.7); /* Чуть прозрачнее в обычном состоянии */
+    padding: 5px 10px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    white-space: nowrap; /* Чтобы длинные названия не переносились некрасиво */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.sidebar__item:hover {
+    color: #f0cc57;
+    background: rgba(255, 255, 255, 0.05); /* Легкий блик на фоне */
+    transform: translateX(10px); /* Вместо scale используем сдвиг вправо — это выглядит более стильно для меню */
+    text-shadow: 0 0 8px rgba(240, 204, 87, 0.4);
 }

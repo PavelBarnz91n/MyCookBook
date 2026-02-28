@@ -1,0 +1,83 @@
+/* Базовые настройки для всех экранов (Desktop First или Mobile First) 
+   Предполагаем, что общие стили у вас уже есть */
+
+/* --- Планшеты и небольшие ноутбуки (до 1024px) --- */
+@media (max-width: 1024px) {
+    .mcb__wraper {
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    .content-box__content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Карточки в 2 колонки */
+        gap: 20px;
+    }
+}
+
+/* --- Планшеты в вертикальной ориентации (до 768px) --- */
+@media (max-width: 768px) {
+    .mcb__header {
+        flex-direction: column; /* Элементы шапки друг под другом */
+        text-align: center;
+        gap: 20px;
+    }
+
+    .mcb__search-box__wraper, 
+    .mcb__social-networks-box {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .mcb__menu-tag-box {
+        flex-wrap: wrap; /* Меню переносится на новые строки */
+        justify-content: center;
+        padding: 10px;
+    }
+
+    .mcb__content-box {
+        flex-direction: column-reverse; /* Сайдбар уходит вниз, контент наверх */
+    }
+
+    .content-box__sidebar-box {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .sidebar-box__sidebar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .sidebar__item {
+        background: #f0f0f0;
+        padding: 5px 15px;
+        border-radius: 20px;
+    }
+}
+
+/* --- Мобильные телефоны (до 480px) --- */
+@media (max-width: 480px) {
+    .mcb__logo-box__name {
+        font-size: 1.8rem;
+    }
+
+    .content-box__content {
+        grid-template-columns: 1fr; /* Карточки в 1 колонку */
+    }
+
+    .mcb__search-box {
+        width: 100%;
+    }
+
+    .mcb__search__input {
+        width: 80%;
+    }
+
+    .recipe-card__image {
+        height: auto;
+    }
+}
