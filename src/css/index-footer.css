@@ -6,6 +6,8 @@
     border-radius: 60px 60px 0 0; /* Красивый изгиб сверху */
     margin-top: 50px;
     box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
+
+    flex-shrink: 0; /* Чтобы футер не сплющивался */
 }
 
 .footer__content {

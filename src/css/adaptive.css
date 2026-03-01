@@ -1,0 +1,29 @@
+/* 6. Специфический запрос для очень широких мониторов (от 1920px и выше) */
+@media screen and (min-width: 1920px) {
+    /* Если нужно ограничить ширину контейнера или увеличить шрифт */
+}
+
+/* 1. Большие экраны (Laptops/Desktops) — до 1200px */
+@media screen and (max-width: 1200px) {
+    /* Здесь правим то, что начинает "теснить" на небольших ноутбуках */
+}
+
+/* 2. Планшеты в альбомной ориентации (Tablets Landscape) — до 1024px */
+@media screen and (max-width: 1024px) {
+    /* Оптимально для iPad Pro и горизонтальных планшетов */
+}
+
+/* 3. Планшеты в портретной ориентации (Tablets Portrait) — до 768px */
+@media screen and (max-width: 768px) {
+    /* Тот самый момент, когда пора перестраивать колонки в один ряд (stack) */
+}
+
+/* 4. Большие смартфоны (Large Phones) — до 480px */
+@media screen and (max-width: 480px) {
+    /* Для iPhone Pro Max, Samsung Ultra и т.д. */
+}
+
+/* 5. Маленькие смартфоны (Small Phones) — до 320px */
+@media screen and (max-width: 320px) {
+    /* Для самых узких экранов (iPhone SE старые модели) */
+}

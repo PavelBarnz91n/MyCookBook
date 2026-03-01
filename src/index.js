@@ -1,7 +1,8 @@
 import './js/script';
 import './css/style.css';
 import './css/food-card.css';
-import './css/responsive.css';
+// import './css/responsive.css';
+import './css/adaptive.css';
 import './css/social-networks-left-panel.css';
 import './css/index-header.css';
 import './css/index-menu-box.css';
